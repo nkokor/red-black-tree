@@ -176,3 +176,8 @@ class RBTree():
     if y_original_color == RBColor.BLACK:
       self.rb_delete_fixup(x)
     
+  def rb_inorder_traversal(self, x):
+    if x.key != None:
+      self.rb_inorder_traversal(x.left)
+      x.print_node()
+      self.rb_inorder(x.right)
