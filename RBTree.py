@@ -89,3 +89,12 @@ class RBTree():
     z.right = self.tnil
     z.color = RBColor.RED
     self.rb_insert_fixup(z)
+
+  def rb_transplant(self, u, v):
+    if u.parent == self.tnil:
+      self.root = v
+    elif u == u.p.left:
+      u.p.left = v
+    else:
+      u.p.right = v
+    v.p = u.p
