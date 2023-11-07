@@ -99,6 +99,11 @@ class RBTree():
       u.p.right = v
     v.p = u.p
 
+  def tree_minimum(self, x):
+    while x.left != self.tnil:
+      x = x.left
+    return x
+
   def rb_delete_fixup(self, x):
     while x != self.root and x.color == RBColor.BLACK:
       if x == x.p.left:
