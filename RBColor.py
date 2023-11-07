@@ -1,5 +1,5 @@
 from enum import Enum
 
-class Color(Enum):
+class RBColor(Enum):
   RED = 'red'
   BLACK = 'black'
