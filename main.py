@@ -1,5 +1,5 @@
-from RBNode import RBNode
-from RBTree import RBTree
+from classes.RBNode import RBNode
+from classes.RBTree import RBTree
 
 rb_tree = RBTree()
 

@@ -1,5 +1,5 @@
-from RBColor import RBColor
-from RBNode import RBNode
+from classes.RBColor import RBColor
+from classes.RBNode import RBNode
 
 class RBTree():
 

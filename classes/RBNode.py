@@ -1,4 +1,4 @@
-from RBColor import RBColor
+from classes.RBColor import RBColor
 
 class RBNode():
 
