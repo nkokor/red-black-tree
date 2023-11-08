@@ -194,3 +194,10 @@ class RBTree():
       self.rb_inorder_traversal(x.left)
       print(x.to_string())
       self.rb_inorder_traversal(x.right)
+
+  def get_inorder(self, x: RBNode, inorder = ""):
+    if x.key != None:
+      inorder = self.get_inorder(x.left, inorder)
+      inorder += str(x.key) + " " + x.color.value + " "
+      inorder = self.get_inorder(x.right, inorder)
+    return inorder

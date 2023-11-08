@@ -21,7 +21,7 @@ def run_app():
         new_node = RBNode(key)
         rb_tree.rb_insert(new_node)
       elif option == 2:
-        rb_tree.rb_inorder_traversal(rb_tree.root)
+        print(rb_tree.get_inorder(rb_tree.root))
       elif option == 3:
         print("Input key to delete: ")
         key = int(input())
