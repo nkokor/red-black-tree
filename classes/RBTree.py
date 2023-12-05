@@ -6,7 +6,6 @@ class RBTree():
   def __init__(self):
     self.tnil = RBNode(None)
     self.root = self.tnil
-    self.n = 0
 
   def get_node_with_key(self, key):
     current = self.root
@@ -164,30 +163,31 @@ class RBTree():
     x.color = RBColor.BLACK
 
   def rb_delete(self, z: RBNode):
-    y = z
-    y_original_color = y.color
-    if z.left == self.tnil:
-      x = z.right
-      self.rb_transplant(z, z.right)
-    elif z.right == self.tnil:
-      x = z.left
-      self.rb_transplant(z, z.left)
-    else:
-      y = self.tree_minimum(z.right)
+    if self.get_node_with_key(z.key) is not None:
+      y = z
       y_original_color = y.color
-      x = y.right
-      if y != z.right:
-        self.rb_transplant(y, y.right)
-        y.right = z.right
-        y.right.p = y
-      else: 
-        x.p = y
-      self.rb_transplant(z, y)
-      y.left = z.left
-      y.left.p = y
-      y.color = z.color
-    if y_original_color == RBColor.BLACK:
-      self.rb_delete_fixup(x)
+      if z.left == self.tnil:
+        x = z.right
+        self.rb_transplant(z, z.right)
+      elif z.right == self.tnil:
+        x = z.left
+        self.rb_transplant(z, z.left)
+      else:
+        y = self.tree_minimum(z.right)
+        y_original_color = y.color
+        x = y.right
+        if y != z.right:
+          self.rb_transplant(y, y.right)
+          y.right = z.right
+          y.right.p = y
+        else: 
+          x.p = y
+        self.rb_transplant(z, y)
+        y.left = z.left
+        y.left.p = y
+        y.color = z.color
+      if y_original_color == RBColor.BLACK:
+        self.rb_delete_fixup(x)
     
   def rb_inorder_traversal(self, x: RBNode):
     if x.key != None:
